@@ -40,14 +40,14 @@ jobs:
       #   run: |
       #     npm test
 
-      # Step 4: Deploy Changes to Main (Only for Pull Request)
-      - name: Deploy to Main Branch
-        if: github.event_name == 'pull_request' && github.event.action == 'opened' || github.event.action == 'synchronize'
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git fetch --all
-          git checkout main || git checkout -b main # Ensure main branch is checked out
-          git pull origin main # Update main branch
-          git merge ${{ github.head_ref }} --no-edit # Merge PR branch into main
-          git push origin main
+      # # Step 4: Deploy Changes to Main (Only for Pull Request)
+      # - name: Deploy to Main Branch
+      #   if: github.event_name == 'pull_request' && github.event.action == 'opened' || github.event.action == 'synchronize'
+      #   run: |
+      #     git config --global user.name "github-actions[bot]"
+      #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      #     git fetch --all
+      #     git checkout main || git checkout -b main # Ensure main branch is checked out
+      #     git pull origin main # Update main branch
+      #     git merge ${{ github.head_ref }} --no-edit # Merge PR branch into main
+      #     git push origin main
