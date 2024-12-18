@@ -3,37 +3,37 @@ name: UI CI Pipeline
 on:
   pull_request:
     branches:
-      - main #Trigger the workflow for pull requests targeting the main branch
+      - main # Trigger the workflow for pull requests targeting the main branch
 
-jobs: 
+jobs:
   build:
     name: Build UI
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Checkout Code
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+      # Step 1: Checkout Code
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-    # # Step 2: Install Node.js
-    # - name: Install Node.js
-    #   uses: actions/setup-node@v3
-    #   with: 
-    #     node-version: '18'
+      # # Step 2: Install Node.js (Uncomment if using a frontend framework like React/Angular)
+      # - name: Install Node.js
+      #   uses: actions/setup-node@v3
+      #   with: 
+      #     node-version: '18'
 
-    # # Step 3: Install dependencies and build
-    # - name: Install dependencies
-    # run: |
-    #   cd frontend
-    #   npm install
-    #   npm run build
+      # # Step 3: Install dependencies and build (Uncomment if you have dependencies)
+      # - name: Install dependencies
+      #   run: |
+      #     cd frontend
+      #     npm install
+      #     npm run build
 
-    # Step 4: Push changes to the main branch after merge
-    - name: Deploy to main
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git checkout main
-        git pull origin main
-        git merge ${{ github.head_ref }}
-        git push origin main
+      # Step 4: Push changes to the main branch after merge
+      - name: Deploy to main
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout main
+          git pull origin main
+          git merge ${{ github.head_ref }}
+          git push origin main
