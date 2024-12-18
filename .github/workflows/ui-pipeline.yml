@@ -14,26 +14,19 @@ jobs:
       # Step 1: Checkout Code
       - name: Checkout Repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Fetch the full history to ensure all branches are available
 
-      # # Step 2: Install Node.js (Uncomment if using a frontend framework like React/Angular)
-      # - name: Install Node.js
-      #   uses: actions/setup-node@v3
-      #   with: 
-      #     node-version: '18'
+      # Step 2: Fetch All Branches
+      - name: Fetch all branches
+        run: git fetch --all
 
-      # # Step 3: Install dependencies and build (Uncomment if you have dependencies)
-      # - name: Install dependencies
-      #   run: |
-      #     cd frontend
-      #     npm install
-      #     npm run build
-
-      # Step 4: Push changes to the main branch after merge
+      # Step 3: Push changes to the main branch after merge
       - name: Deploy to main
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout main
+          git checkout main || git checkout -b main # Checkout or create the main branch
           git pull origin main
-          git merge ${{ github.head_ref }}
+          git merge ${{ github.head_ref }} --no-edit # Merge PR branch into main
           git push origin main
