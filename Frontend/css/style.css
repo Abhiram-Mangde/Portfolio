@@ -1,29 +1,315 @@
+/* General Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    background: linear-gradient(to bottom, #e4e1e2, #dcdeed, #aeb2ca, #f3f3f3);
+    color: #fff;
 }
 
+/* Header Section */
 header {
-    background-color: #333;
+    text-align: center;
+    background-color: #064950;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
     color: white;
-    padding: 10px 20px;
+    margin: 0;
+    font-size: 2.5rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+
+header nav {
+    display: flex; /* Use flexbox to align items in a row */
+    justify-content: center; /* Center the navigation links */
+    gap: 20px; /* Add space between the links */
+    margin-top: 15px;
 }
 
 header nav a {
-    color: white;
     text-decoration: none;
-    margin: 0 10px;
+    color: #c4ecee;
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 5px 10px;
+    transition: color 0.3s, transform 0.3s;
 }
 
-section {
-    padding: 20px;
-    margin: 20px;
-    border-bottom: 1px solid #ddd;
+header nav a:hover {
+    color: #fff;
+    transform: scale(1.1); /* Slight zoom-in effect */
 }
 
-form label {
+header nav a::after {
+    content: '';
     display: block;
-    margin-top: 10px;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s;
+    margin: auto;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+/* Section Styling */
+main section {
+    padding: 60px 20px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+main h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    animation: slideIn 1.2s ease-out;
+}
+
+main h2::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 3px;
+    background: #fff;
+    margin: 10px auto;
+}
+
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* --------------About Section Styling----------------- */
+#about {
+    background: linear-gradient(135deg, #000000, #064c51);
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+#about h2::after {
+    content: '';
+    width: 100px;
+    height: 3px;
+    background: #fff;
+    display: block;
+    margin: 10px auto 0 auto;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: auto;
+    animation: fadeIn 2s ease-out;
+}
+
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.about-text .highlight {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+/* Highlighted Text */
+.highlight {
+    color: #ffca28;
+    font-weight: bold;
+}
+
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* -----------Skills Section---------------- */
+#skills {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #000000, #064c51);
+}
+
+#skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ffffff;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Skill Cards */
+.skill-card {
+    width: 200px;
+    height: 250px;
+    perspective: 800px;
+    position: relative;
+}
+
+.skill-card div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.6s ease;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #c6e7ec, #218280);
+    color: #040000;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #000000, #064c51);
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 2px;
+    border: 1px solid #0078d7;
+    transform: rotateY(180deg);
+    border-radius: 10px;
+}
+
+/* Hover Effect */
+.skill-card:hover .card-front {
+    transform: rotateY(180deg);
+}
+
+.skill-card:hover .card-back {
+    transform: rotateY(0);
+}
+
+/* List Styling */
+.skills-list li, .projects-list li {
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.skills-list li:hover, .projects-list li:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Form Styling */
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contact-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    padding: 10px 20px;
+    background: #3949ab;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#contact-form button:hover {
+    background: #5c6bc0;
+}
+
+/* Footer Styling */
+footer {
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    background: linear-gradient(135deg, #000000, #064c51);
+    font-size: 1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/*About Section*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    #about {
+        padding: 30px 10px;
+    }
+    #about h2 {
+        font-size: 2rem;
+    }
+    .about-text {
+        font-size: 1rem;
+    }
 }

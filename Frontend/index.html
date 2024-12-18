@@ -5,52 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Welcome to My Portfolio</h1>
+        <h1 class="fade-in">Portfolio</h1>
         <nav>
             <a href="#about">About Me</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#hobby">Hobby</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello, I’m Abhiram Chandrashekhar Mangde. I am a developer passionate about cloud, DevOps, and software engineering.</p>
-    </section>
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>C#</li>
-            <li>Azure DevOps</li>
-            <li>CI/CD Pipelines</li>
-            <li>Docker</li>
-            <li>Kubernetes</li>
-        </ul>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li>Smart Spaces IoT</li>
-            <li>Vehicle Inspection System</li>
-        </ul>
-    </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="3" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+    <main>
+        <section id="about">
+            <div class="about-container">
+                <h2>About Me</h2>
+                <p class="about-text">
+                    Hello! I’m <span class="highlight">Abhiram Chandrashekhar Mangde</span>, a passionate <span class="highlight">DevOps Engineer</span> and technology enthusiast with over <span class="highlight">3.5 years of experience</span> in cloud technologies, automation, and software development. My journey has been centered on driving innovation, optimizing workflows, and delivering scalable, secure, and reliable solutions.
+                </p>
+                <p class="about-text">
+                    At <span class="highlight">Infosys</span>, I honed my expertise in <span class="highlight">CI/CD pipelines</span>, <span class="highlight">containerization</span>, and <span class="highlight">cloud orchestration</span>, managing complex deployments across microservices and enterprise applications. My hands-on experience with <span class="highlight">Azure</span>, <span class="highlight">Docker</span>, and <span class="highlight">Kubernetes</span> has empowered me to create efficient systems that consistently meet and exceed <span class="highlight">SLA/SLO metrics</span>.
+                </p>
+                <p class="about-text">
+                    Outside work, I enjoy exploring emerging technologies and staying updated with the latest industry trends. Let’s build something amazing together!
+                </p>
+            </div>
+            <section id="skills">
+                <h2>Skills</h2>
+                <div class="skills-container">
+                    <!-- Card 1: C# -->
+                    <div class="skill-card">
+                        <div class="card-front">
+                            <h3>C#</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>1+ years of experience in backend development using C#, for Creating Web APIs and Microservices</p>
+                        </div>
+                    </div>
+            
+                    <!-- Card 2: Azure DevOps -->
+                    <div class="skill-card">
+                        <div class="card-front">
+                            <h3>Azure DevOps</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>3+ years of experience in Azure DevOps, including hands on implementation on Boards, Repos, Pipelines, Artifacts, Tests.</p>
+                        </div>
+                    </div>
+            
+                    <!-- Card 3: Docker -->
+                    <div class="skill-card">
+                        <div class="card-front">
+                            <h3>Docker</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>2.5+ years of experience managing containerized applications for reliable deployments.</p>
+                        </div>
+                    </div>
+            
+                    <!-- Card 4: Kubernetes -->
+                    <div class="skill-card">
+                        <div class="card-front">
+                            <h3>Kubernetes</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>2+ years of experience in orchestration, scaling, and optimizing containerized environments.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul class="projects-list">
+                <li>Smart Spaces IoT</li>
+                <li>Vehicle Inspection System</li>
+            </ul>
+        </section>
+        <section id="hobby">
+            <h2>Hobby</h2>
+            <p>I enjoy coding, creating new solutions, and exploring DevOps tools and technologies.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="3" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
     <footer>
         <p>© 2024 Abhiram Chandrashekhar Mangde</p>
     </footer>
+    <script>
+        // Add smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
