@@ -1,13 +1,17 @@
 name: UI CI Pipeline
 
+# Trigger the workflow on pull requests and pushes to the main branch
 on:
   pull_request:
     branches:
-      - main # Trigger the workflow for pull requests targeting the main branch
+      - main # Trigger workflow for PRs targeting the main branch
+  push:
+    branches:
+      - main # Trigger workflow when code is pushed to the main branch
 
 jobs:
-  build:
-    name: Build UI
+  ci-pipeline:
+    name: CI Pipeline for UI
     runs-on: ubuntu-latest
 
     steps:
@@ -15,18 +19,35 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # Fetch the full history to ensure all branches are available
+          fetch-depth: 0 # Ensure full history is fetched
 
-      # Step 2: Fetch All Branches
-      - name: Fetch all branches
-        run: git fetch --all
+      # Step 2 (Optional): Set up Node.js (For UI build dependencies)
+      # Uncomment if you have a frontend framework like React or Angular
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '18' # Specify the version of Node.js
 
-      # Step 3: Push changes to the main branch after merge
-      - name: Deploy to main
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout main || git checkout -b main # Checkout or create the main branch
-          git pull origin main
-          git merge ${{ github.head_ref }} --no-edit # Merge PR branch into main
-          git push origin main
+      # - name: Install dependencies and build
+      #   run: |
+      #     cd frontend # Change directory to your frontend code
+      #     npm install
+      #     npm run build
+
+      # Step 3: Test Code Changes (Add your test script here)
+      # Example: Uncomment and replace with your test script
+      # - name: Run Tests
+      #   run: |
+      #     npm test
+
+      # # Step 4: Deploy Changes to Main (Only for Pull Request)
+      # - name: Deploy to Main Branch
+      #   if: github.event_name == 'pull_request' && github.event.action == 'opened' || github.event.action == 'synchronize'
+      #   run: |
+      #     git config --global user.name "github-actions[bot]"
+      #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      #     git fetch --all
+      #     git checkout main || git checkout -b main # Ensure main branch is checked out
+      #     git pull origin main # Update main branch
+      #     git merge ${{ github.head_ref }} --no-edit # Merge PR branch into main
+      #     git push origin main
