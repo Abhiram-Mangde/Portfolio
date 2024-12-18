@@ -3,7 +3,7 @@ name: UI CI Pipeline
 on:
   pull_request:
   branches:
-    -main #Trigger the workflow for pull requests targeting the main branch
+    - main #Trigger the workflow for pull requests targeting the main branch
 
 jobs: 
   build:
