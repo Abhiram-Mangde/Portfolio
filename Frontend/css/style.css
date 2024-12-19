@@ -236,6 +236,77 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 
+/*----------------Projects-------------*/
+#projects {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #000000, #064c51);
+}
+
+#projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #fffefe;
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Project Cards */
+.project-card {
+    width: 90%;
+    max-width: 800px;
+    background: #b5fef3;
+    border: 2px solid #0a71d1;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.project-card h3 {
+    color: #164441;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Skills as Non-Clickable Buttons */
+.skills-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #000000;
+    background-color: #e3f2fd;
+    border: 2px solid #0078d7;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.skill:hover {
+    background: linear-gradient(135deg, #000000, #064c51);
+    color: #fff;
+    transform: scale(1.1);
+    cursor: default;
+}
+
 /* Form Styling */
 #contact-form {
     max-width: 600px;
